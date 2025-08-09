@@ -1,4 +1,22 @@
 services:
+  # =======================
+  # Backend (Node.js API)
+  # =======================
+  - type: web
+    name: intern-portal-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js   # or npm start if in package.json
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000   # Render will set PORT, can override if needed
+
+  # =======================
+  # Frontend (Vite Static Site)
+  # =======================
   - type: web
     name: intern-portal-frontend
     env: static
